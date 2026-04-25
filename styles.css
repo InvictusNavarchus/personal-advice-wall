@@ -69,7 +69,7 @@ body {
 }
 
 @media (min-width: 1200px) {
-  .wall { column-count: 4; }
+  .wall { column-count: 3; }
 }
 
 .card {
