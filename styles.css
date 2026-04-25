@@ -99,8 +99,8 @@ body {
   word-wrap: break-word;
   white-space: pre-wrap;
   margin: 0;
-  font-size: var(--text-font-size, 1rem);
-  font-weight: var(--text-font-weight, 400);
+  font-size: 1.4rem;
+  font-weight: 600;
 }
 
 .actions {

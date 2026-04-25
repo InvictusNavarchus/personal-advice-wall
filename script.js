@@ -32,14 +32,6 @@
     return cardColors[Math.abs(hash) % cardColors.length];
   }
 
-  function getFontOptions(text) {
-    const len = text.trim().length;
-    if (len < 50) return { size: 1.8, weight: 700 };
-    if (len < 100) return { size: 1.4, weight: 600 };
-    if (len < 180) return { size: 1.1, weight: 600 };
-    return { size: 0.95, weight: 400 };
-  }
-
   function escapeHTML(str) {
     const p = document.createElement('p');
     p.appendChild(document.createTextNode(str));
@@ -79,9 +71,6 @@
 
       const textEl = document.createElement('div');
       textEl.className = 'text';
-      const opts = getFontOptions(advice.text);
-      textEl.style.setProperty('--text-font-size', opts.size + 'rem');
-      textEl.style.setProperty('--text-font-weight', opts.weight);
       textEl.innerHTML = escapeHTML(advice.text);
 
       const actions = document.createElement('div');
