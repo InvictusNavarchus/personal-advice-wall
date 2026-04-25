@@ -6,11 +6,12 @@
   <title>Personal Advice Wall</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-color: #1a1714;
-      --text-modal: #1a1714;
+      --bg-color: #1a1816;
+      --text-modal: #2d2a26;
+      --text-main: #fdf8e1;
     }
 
     * {
@@ -21,6 +22,7 @@
 
     body {
       background-color: var(--bg-color);
+      color: var(--text-main);
       font-family: 'Inter', sans-serif;
       min-height: 100vh;
       -webkit-font-smoothing: antialiased;
@@ -28,9 +30,29 @@
     }
 
     .wall-container {
-      padding: 2rem;
+      padding: 2.5rem;
       max-width: 1800px;
       margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header {
+      margin-bottom: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-bottom: 1px solid rgba(253, 248, 225, 0.1);
+      padding-bottom: 16px;
+    }
+
+    .header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      margin: 0;
+      font-style: italic;
+      color: var(--text-main);
+      font-weight: 700;
     }
 
     .wall {
@@ -49,36 +71,39 @@
 
     .card {
       break-inside: avoid;
-      margin-bottom: 1.5rem;
-      padding: 2.5rem 2rem;
+      margin-bottom: 20px;
+      padding: 24px;
       border-radius: 4px;
       position: relative;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
-      display: inline-block;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       width: 100%;
       color: var(--text-modal);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      transition: transform 0.2s ease;
     }
 
     .card:hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
     }
 
     .text {
       font-family: 'Playfair Display', serif;
-      line-height: 1.35;
+      line-height: 1.2;
       word-wrap: break-word;
       white-space: pre-wrap;
+      margin: 0;
     }
 
     .actions {
       position: absolute;
-      bottom: 0.75rem;
-      right: 0.75rem;
-      opacity: 0;
+      top: 10px;
+      right: 10px;
+      opacity: 0.3;
       display: flex;
-      gap: 0.5rem;
+      gap: 8px;
       transition: opacity 0.2s ease;
     }
 
@@ -93,18 +118,19 @@
       background: rgba(0, 0, 0, 0.05);
       border: none;
       border-radius: 50%;
-      width: 32px;
-      height: 32px;
+      width: 24px;
+      height: 24px;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #444;
+      color: var(--text-modal);
       transition: background 0.2s, color 0.2s;
+      font-size: 12px;
     }
 
     .icon-btn:hover { background: rgba(0, 0, 0, 0.1); color: #000; }
-    .icon-btn.delete:hover { background: #fee2e2; color: #dc2626; }
+    .icon-btn.delete:hover { background: rgba(220, 38, 38, 0.15); color: #dc2626; }
 
     .icon-svg {
       width: 16px; height: 16px;
@@ -113,27 +139,27 @@
 
     .fab {
       position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      width: 60px;
-      height: 60px;
+      bottom: 40px;
+      right: 40px;
+      width: 64px;
+      height: 64px;
       border-radius: 50%;
-      background: #e6dfc8;
-      color: #1e1b18;
+      background-color: #fdf8e1;
+      color: #1a1816;
       border: none;
-      font-size: 2rem;
+      font-size: 32px;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
       transition: transform 0.2s ease, background 0.2s ease;
       z-index: 100;
     }
 
     .fab:hover {
       transform: scale(1.05);
-      background: #fdfbf7;
+      background-color: #ffffff;
     }
 
     /* Modal */
@@ -156,9 +182,9 @@
     }
 
     .modal {
-      background: #fdfbf7;
-      border-radius: 8px;
-      padding: 2rem;
+      background: #fdf8e1;
+      border-radius: 4px;
+      padding: 24px;
       width: 100%;
       max-width: 600px;
       box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
@@ -186,9 +212,9 @@
       font-family: 'Playfair Display', serif;
       font-size: 1.4rem;
       color: var(--text-modal);
-      border: 1px solid #e0d8c8;
+      border: 1px solid rgba(0,0,0,0.1);
       border-radius: 4px;
-      background: #fff;
+      background: #fffdf5;
       resize: vertical;
       outline: none;
       box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
@@ -259,6 +285,13 @@
 <body>
 
   <div class="wall-container">
+    <header class="header">
+      <div>
+        <h1>Personal Advice Wall</h1>
+        <p style="opacity:0.6; font-size:13px; margin-top:4px">Whispers of wisdom for the quiet hours.</p>
+      </div>
+      <div id="collection-count" style="font-size:12px; text-transform:uppercase; letter-spacing:1px; opacity:0.5">0 Reflections Collected</div>
+    </header>
     <div id="wall" class="wall"></div>
   </div>
 
@@ -297,11 +330,9 @@
       const fab = document.getElementById('fab');
 
       const cardColors = [
-        '#FDFBF7', // Off-white cream
-        '#F9F6F0', // Slightly warmer
-        '#F5F0E6', // Beige-ish
-        '#F2EBE1', // Earthy cream
-        '#FAFAF5', // Pale eggshell
+        '#fdf8e1',
+        '#f9f1d0',
+        '#fefce8'
       ];
 
       function getColor(id) {
@@ -313,13 +344,12 @@
         return cardColors[Math.abs(hash) % cardColors.length];
       }
 
-      function getFontSize(text) {
+      function getFontOptions(text) {
         const len = text.trim().length;
-        if (len < 50) return 1.8;
-        if (len < 100) return 1.5;
-        if (len < 180) return 1.25;
-        if (len < 300) return 1.1;
-        return 0.95;
+        if (len < 50) return { size: 1.8, weight: 700 };
+        if (len < 100) return { size: 1.4, weight: 600 };
+        if (len < 180) return { size: 1.1, weight: 600 };
+        return { size: 0.95, weight: 400 };
       }
 
       function escapeHTML(str) {
@@ -333,8 +363,13 @@
         trash: `<svg class="icon-svg" viewBox="0 0 24 24"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>`
       };
 
+      const collectionCountEl = document.getElementById('collection-count');
+
       function render() {
         wall.innerHTML = '';
+        if (collectionCountEl) {
+          collectionCountEl.textContent = `${advices.length} Reflection${advices.length !== 1 ? 's' : ''} Collected`;
+        }
 
         if (advices.length === 0) {
           wall.style.columnCount = '1';
@@ -356,7 +391,9 @@
 
           const textEl = document.createElement('div');
           textEl.className = 'text';
-          textEl.style.fontSize = getFontSize(advice.text) + 'rem';
+          const opts = getFontOptions(advice.text);
+          textEl.style.fontSize = opts.size + 'rem';
+          textEl.style.fontWeight = opts.weight;
           textEl.innerHTML = escapeHTML(advice.text);
 
           const actions = document.createElement('div');
