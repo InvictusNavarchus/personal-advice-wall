@@ -45,8 +45,21 @@ body {
   font-weight: 700;
 }
 
+.header p {
+  opacity: 0.6;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+#collection-count {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.5;
+}
+
 .wall {
-  column-count: 1;
+  column-count: var(--wall-column-count, 1);
   column-gap: 1.5rem;
 }
 
@@ -72,6 +85,7 @@ body {
   width: 100%;
   color: var(--text-modal);
   transition: transform 0.2s ease;
+  background-color: var(--card-bg-color, #fdf8e1);
 }
 
 .card:hover {
@@ -85,6 +99,8 @@ body {
   word-wrap: break-word;
   white-space: pre-wrap;
   margin: 0;
+  font-size: var(--text-font-size, 1rem);
+  font-weight: var(--text-font-weight, 400);
 }
 
 .actions {

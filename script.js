@@ -60,7 +60,7 @@
     }
 
     if (advices.length === 0) {
-      wall.style.columnCount = '1';
+      wall.style.setProperty('--wall-column-count', '1');
       wall.innerHTML = `
         <div class="empty-state">
           <h1>A Blank Canvas</h1>
@@ -70,18 +70,18 @@
       return;
     }
 
-    wall.style.columnCount = '';
+    wall.style.setProperty('--wall-column-count', '');
 
     advices.forEach(advice => {
       const card = document.createElement('div');
       card.className = 'card';
-      card.style.backgroundColor = getColor(advice.id);
+      card.style.setProperty('--card-bg-color', getColor(advice.id));
 
       const textEl = document.createElement('div');
       textEl.className = 'text';
       const opts = getFontOptions(advice.text);
-      textEl.style.fontSize = opts.size + 'rem';
-      textEl.style.fontWeight = opts.weight;
+      textEl.style.setProperty('--text-font-size', opts.size + 'rem');
+      textEl.style.setProperty('--text-font-weight', opts.weight);
       textEl.innerHTML = escapeHTML(advice.text);
 
       const actions = document.createElement('div');
