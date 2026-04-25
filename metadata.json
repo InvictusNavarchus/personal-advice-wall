@@ -1,0 +1,6 @@
+{
+  "name": "Personal Advice Wall",
+  "description": "A refined, masonry-layout corkboard for personal thoughts and advice using local storage.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
