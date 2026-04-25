@@ -94,13 +94,13 @@ body {
 }
 
 .text {
-  font-family: 'Playfair Display', serif;
-  line-height: 1.2;
+  font-family: 'Lora', serif;
+  line-height: 1.6;
   word-wrap: break-word;
   white-space: pre-wrap;
   margin: 0;
   font-size: 1.4rem;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .actions {
